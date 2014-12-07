@@ -8,11 +8,18 @@
   "immed": true,
   "indent": 4,
   "latedef": true,
-  "newcap": true,
+  "newcap": false,
   "noarg": true,
   "quotmark": "single",
   "undef": true,
   "unused": true,
   "strict": true,
-  "jquery": false
+  "jquery": false,
+  "predef": [
+    "GameDetails",
+    "DownloadingFile",
+    "SetStatusChanged",
+    "SetFilesTotal",
+    "SetFilesNeeded"
+  ]
 }
