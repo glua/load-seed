@@ -5,3 +5,5 @@ dist
 
 *.TODO
 *.sublime-workspace
+
+logevents.js
