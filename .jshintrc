@@ -10,7 +10,7 @@
   "latedef": true,
   "newcap": false,
   "noarg": true,
-  "quotmark": "single",
+  "quotmark": false,
   "undef": true,
   "unused": true,
   "strict": true,

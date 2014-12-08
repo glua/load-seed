@@ -2,7 +2,7 @@
 (function () {
     'use strict';
 
-    window.LOAD = {};
+    var LOAD = {};
 
     LOAD.init = function () {
         this.progress = 0.0;
@@ -13,9 +13,11 @@
 
     };
 
-    LOAD.onFileDownloaded = function () {
+    LOAD.onFileDownloading = function (filePath) {
         this.filesNeeded = Math.max(0, this.filesNeeded - 1);
     };
+
+    window.LOAD = LOAD;
 
     /**
      * Called when the loading screen finishes loading all assets.
@@ -38,7 +40,7 @@
      * @param {String} filePath Full file path.
      */
     window.DownloadingFile = function (filePath) {
-        console.log('DownloadingFile', arguments);
+        LOAD.onFileDownloading(filePath);
     };
 
     /**
