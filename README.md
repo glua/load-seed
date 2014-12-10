@@ -4,6 +4,8 @@ This project is an application skeleton for building a Garry's Mod loading scree
 
 The seed comes preconfigured with modern frontend tools to make developing a loading screen faster and easier.
 
+See the [loading screen demo page](https://gmodcoders.github.io/load-seed/) for a preview. Some of the images may not appear outside of the Garry's Mod browser.
+
 ## Getting Started
 
 To get started you can simply clone the load-seed repository and install the dependencies:
