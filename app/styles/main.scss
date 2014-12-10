@@ -19,7 +19,7 @@ body {
 
 .loading-screen {
     $ls-width: 720px;
-    $ls-section-margin: 15px;
+    $ls-section-margin: 25px;
     $ls-text-color: #ececec;
 
     width: 100%;
@@ -76,7 +76,7 @@ body {
     }
 
     .loading-bar {
-        $bar-height: 30px;
+        $bar-height: 24px;
         $bar-color: #3498db;
 
         width: $ls-width;
@@ -123,6 +123,17 @@ body {
 
         .percentage {
             right: 0;
+        }
+    }
+
+    .server-info {
+        width: 140px;
+
+        .preview {
+            width: 128px;
+            height: 128px;
+            margin: 0 15px 15px 0;
+            border-radius: 4px;
         }
     }
 }

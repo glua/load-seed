@@ -10,9 +10,17 @@
         this.filesTotal = 1;
 
         this.$ = {};
+
+        // loading bar
         this.$.progressBar = document.getElementById('progressbar');
         this.$.status = document.getElementById('status');
         this.$.percentage = document.getElementById('percentage');
+
+        // server info
+        this.$.mapPreview = document.getElementById('mappreview');
+        this.$.serverName = document.getElementById('servername');
+        this.$.mapName = document.getElementById('mapname');
+        this.$.playerSlots = document.getElementById('playerslots');
 
         this.updateProgress();
     };
@@ -23,6 +31,18 @@
 
     LOAD.setFilesNeeded = function (numFiles) {
         this.filesNeeded = Math.max(0, numFiles);
+    };
+
+    LOAD.setServerInfo = function (serverName, mapName, maxPlayers, gamemode) {
+        // set map preview image
+        // this.$.mapPreview.src = 'asset://mapimage/' + mapName;
+
+        // gametracker.com map previews can also be used
+        this.$.mapPreview.src = 'http://image.www.gametracker.com/images/maps/160x120/garrysmod/' + mapName + '.jpg';
+
+        this.$.mapName.innerText = mapName;
+        this.$.serverName.innerText = serverName;
+        this.$.playerSlots.innerText = maxPlayers + ' player slots';
     };
 
     LOAD.updateProgress = function () {
@@ -68,7 +88,7 @@
      * @param {String} gamemode   Gamemode folder name.
      */
     window.GameDetails = function (serverName, serverUrl, mapName, maxPlayers, steamid, gamemode) {
-        console.log('GameDetails', arguments);
+        LOAD.setServerInfo(serverName, mapName, maxPlayers, gamemode);
     };
 
     /**
