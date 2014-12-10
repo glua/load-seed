@@ -11,7 +11,10 @@ gulp.task('styles', function () {
       style: 'expanded',
       precision: 10
     }))
-    .pipe($.autoprefixer({browsers: ['last 1 version']}))
+    // GMod Awesomium uses Chrome v18
+    .pipe($.autoprefixer({
+      browsers: ['Chrome >= 18', 'last 1 version']
+    }))
     .pipe(gulp.dest('.tmp/styles'));
 });
 
