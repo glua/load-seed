@@ -136,4 +136,48 @@ body {
             border-radius: 4px;
         }
     }
+
+    .server-rules {
+        width: 140px;
+
+        .rules {
+            counter-reset: rules-counter;
+            margin: 0;
+            padding: 0;
+
+            $rule-padding-v: 8px;
+            $rule-padding-h: 2em;
+            $rule-height: 28px;
+
+            > li {
+                padding: $rule-padding-v ($rule-padding-h + 0.5em);
+                list-style: none;
+                line-height: $rule-height;
+
+                border-bottom: 1px solid rgba(255,255,255,0.11);
+
+                position: relative;
+
+                &:before {
+                    content: counter(rules-counter);
+                    counter-increment: rules-counter;
+
+                    width: 2em;
+                    height: $rule-height + $rule-padding-v * 2;
+                    line-height: $rule-height + $rule-padding-v * 2;
+
+                    text-align: center;
+                    font-weight: bold;
+
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
 }
