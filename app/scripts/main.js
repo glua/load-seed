@@ -4,6 +4,9 @@
 
     var LOAD = {};
 
+    /**
+     * Initialize the loading screen.
+     */
     LOAD.init = function () {
         this.progress = 0.0;
         this.filesNeeded = 1;
@@ -25,26 +28,41 @@
         this.updateProgress();
     };
 
+    /**
+     * Set the total number of files to be downloaded. This will be called on
+     * the `SetFilesTotal` loading screen event.
+     */
     LOAD.setFilesTotal = function (numFiles) {
         this.filesTotal = Math.max(0, numFiles);
     };
 
+    /**
+     * Sets the number of files needed to be downloaded. This will be called on
+     * the `SetFilesNeeded` loading screen event.
+     */
     LOAD.setFilesNeeded = function (numFiles) {
         this.filesNeeded = Math.max(0, numFiles);
     };
 
+    /**
+     * Sets the server info data on the loading screen. This will be called on
+     * the `GameDetails` loading screen event.
+     */
     LOAD.setServerInfo = function (serverName, mapName, maxPlayers, gamemode) {
         // set map preview image
         // this.$.mapPreview.src = 'asset://mapimage/' + mapName;
 
         // gametracker.com map previews can also be used
-        this.$.mapPreview.src = 'http://image.www.gametracker.com/images/maps/160x120/garrysmod/' + mapName + '.jpg';
+        this.$.mapPreview.sdrc = 'http://image.www.gametracker.com/images/maps/160x120/garrysmod/' + mapName + '.jpg';
 
         this.$.mapName.innerText = mapName;
         this.$.serverName.innerText = serverName;
         this.$.playerSlots.innerText = maxPlayers + ' player slots';
     };
 
+    /**
+     * Updates the progress bar on the loading screen.
+     */
     LOAD.updateProgress = function () {
         var filesRemaining = Math.max(0, this.filesTotal - this.filesNeeded),
             progress = (this.filesTotal > 0) ?
@@ -56,6 +74,11 @@
         this.$.progressBar.style.right = (100 - progress) + '%';
     };
 
+    /**
+     * Called on the `DownloadingFile` loading screen event.
+     * Updates the loading progress and shows which file is currently being
+     * downloaded.
+     */
     LOAD.onFileDownloading = function (filePath) {
         this.filesNeeded = Math.max(0, this.filesNeeded - 1);
         this.updateProgress();
@@ -64,6 +87,9 @@
         this.onStatusChanged(status);
     };
 
+    /**
+     * Called on the `SetStatusChanged` loading screen event.
+     */
     LOAD.onStatusChanged = function (status) {
         // final status
         if (status === 'Sending client info...') {
