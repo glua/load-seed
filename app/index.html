@@ -9,22 +9,24 @@
     <!-- endbuild -->
 </head>
 <body>
-    <div class="container">
+    <div class="loading-screen">
         <header class="logo-container">
             <img src="/images/logo.png" alt="Logo">
         </header>
 
         <div class="content-container">
-            <section class="info">
+            <section class="board server-info">
                 <header class="title">Server Info</header>
-                <div class="description">
+                <div class="content">
 
                 </div>
             </section>
 
-            <section class="info">
+            <section class="board-divider"></section>
+
+            <section class="board server-rules">
                 <header class="title">Rules</header>
-                <div class="description">
+                <div class="content">
                     <ul class="rules">
                         <li></li>
                         <li></li>
@@ -37,8 +39,8 @@
 
         <div class="loading-bar">
             <div id="progressbar" class="progress-bar"></div>
-            <span id="status" class="status"></span>
-            <span id="percentage" class="percentage"></span>
+            <span id="status" class="status">Sending client info...</span>
+            <span id="percentage" class="percentage">99%</span>
         </div>
     </div>
 

@@ -1,5 +1,128 @@
+@import "mixins";
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     background: #000;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Arial, sans-serif;
     color: #fff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.loading-screen {
+    $ls-width: 720px;
+    $ls-section-margin: 15px;
+    $ls-text-color: #ececec;
+
+    width: 100%;
+    height: 100%;
+
+    background: #000 url(/images/background01.jpg) no-repeat 50% 50%;
+    background-size: cover;
+
+    font-family: Arial, sans-serif;
+
+    @include box;
+    @include box-center;
+    @include box-vertical;
+
+    .logo-container {
+        margin: 0 0 $ls-section-margin 0;
+    }
+
+    .content-container {
+        width: $ls-width;
+        margin: 0 0 $ls-section-margin 0;
+
+        @include box;
+        @include box-horizontal;
+
+        .board {
+            $board-padding: 10px;
+
+            background-color: rgba(0,0,0,0.77);
+            border-radius: 5px;
+
+            @include box-flex(1);
+
+            .title {
+                color: $ls-text-color;
+                padding: $board-padding 5px;
+
+                font-size: 18px;
+                font-weight: bold;
+                text-align: center;
+
+                border-bottom: 1px solid rgba(255,255,255,0.11);
+            }
+
+            .content {
+                padding: $board-padding;
+            }
+        }
+
+        .board-divider {
+            max-width: 15px;
+            @include box-flex(1);
+        }
+    }
+
+    .loading-bar {
+        $bar-height: 30px;
+        $bar-color: #3498db;
+
+        width: $ls-width;
+        height: $bar-height;
+
+        position: relative;
+
+        background-color: darken($bar-color, 22%);
+
+        .progress-bar {
+            background-color: $bar-color;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+
+            right: 63%;
+        }
+
+        .status, .percentage {
+            padding: 0 8px;
+
+            color: $ls-text-color;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.33);
+            font-size: 12px;
+            line-height: $bar-height;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .status {
+            left: 0;
+
+            // don't overflow overtop of percentage
+            white-space: nowrap;
+            text-overflow: clip;
+            overflow: hidden;
+            @include calc(max-width, "100% - 46px");
+        }
+
+        .percentage {
+            right: 0;
+        }
+    }
 }

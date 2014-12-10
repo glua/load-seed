@@ -1,0 +1,36 @@
+// Flex box isn't supported in the GMod version of Awesomium.
+// These mixins use the old flexbox standards.
+
+@mixin box {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+}
+
+@mixin box-center {
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+
+@mixin box-vertical {
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -box-orient: vertical;
+}
+
+@mixin box-horizontal {
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    box-orient: horizontal;
+}
+
+@mixin box-flex($amount) {
+    -webkit-box-flex: $amount;
+    -moz-box-flex: $amount;
+    box-flex: $amount;
+}
+
+@mixin calc($property, $expression) {
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
