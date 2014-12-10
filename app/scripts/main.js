@@ -6,17 +6,55 @@
 
     LOAD.init = function () {
         this.progress = 0.0;
-        this.filesNeeded = 0;
+        this.filesNeeded = 1;
         this.filesTotal = 1;
 
         this.$ = {};
+        this.$.progressBar = document.getElementById('progressbar');
+        this.$.status = document.getElementById('status');
+        this.$.percentage = document.getElementById('percentage');
 
+        this.updateProgress();
+    };
+
+    LOAD.setFilesTotal = function (numFiles) {
+        this.filesTotal = Math.max(0, numFiles);
+    };
+
+    LOAD.setFilesNeeded = function (numFiles) {
+        this.filesNeeded = Math.max(0, numFiles);
+    };
+
+    LOAD.updateProgress = function () {
+        var filesRemaining = Math.max(0, this.filesTotal - this.filesNeeded),
+            progress = (this.filesTotal > 0) ?
+                (filesRemaining / this.filesTotal) : 1;
+
+        progress = Math.round(progress * 100);
+
+        this.$.percentage.innerText = progress + '%';
+        this.$.progressBar.style.right = (100 - progress) + '%';
     };
 
     LOAD.onFileDownloading = function (filePath) {
         this.filesNeeded = Math.max(0, this.filesNeeded - 1);
+        this.updateProgress();
+
+        var status = 'Downloading ' + filePath + '...';
+        this.onStatusChanged(status);
     };
 
+    LOAD.onStatusChanged = function (status) {
+        // final status
+        if (status === 'Sending client info...') {
+            this.filesNeeded = 0;
+            this.updateProgress();
+        }
+
+        this.$.status.innerText = status;
+    };
+
+    LOAD.init();
     window.LOAD = LOAD;
 
     /**
@@ -50,7 +88,7 @@
      * @param {String} status Loading status.
      */
     window.SetStatusChanged = function (status) {
-        console.log('SetStatusChanged', arguments);
+        LOAD.onStatusChanged(status);
     };
 
     /**
@@ -60,7 +98,7 @@
      * @param {String} total Total files to be downloaded.
      */
     window.SetFilesTotal = function (total) {
-        console.log('SetFilesTotal', arguments);
+        LOAD.setFilesTotal(total);
     };
 
     /**
@@ -69,6 +107,6 @@
      * @param {String} needed Number of files needed to download.
      */
     window.SetFilesNeeded = function (needed) {
-        console.log('SetFilesNeeded', arguments);
+        LOAD.setFilesNeeded(needed);
     };
 }());
