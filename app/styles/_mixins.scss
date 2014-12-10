@@ -30,7 +30,19 @@
     box-flex: $amount;
 }
 
+@mixin box-no-stretch {
+    -webkit-box-align: start;
+    -moz-box-flex: start;
+    box-flex: start;
+}
+
 @mixin calc($property, $expression) {
     #{$property}: -webkit-calc(#{$expression});
     #{$property}: calc(#{$expression});
+}
+
+@mixin single-line {
+    white-space: nowrap;
+    text-overflow: clip;
+    overflow: hidden;
 }

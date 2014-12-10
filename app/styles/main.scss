@@ -44,6 +44,7 @@ body {
 
         @include box;
         @include box-horizontal;
+        // @include box-no-stretch;
 
         .board {
             $board-padding: 10px;
@@ -115,9 +116,7 @@ body {
             left: 0;
 
             // don't overflow overtop of percentage
-            white-space: nowrap;
-            text-overflow: clip;
-            overflow: hidden;
+            @include single-line;
             @include calc(max-width, "100% - 46px");
         }
 
@@ -135,6 +134,10 @@ body {
             margin: 0 15px 15px 0;
             border-radius: 4px;
         }
+
+        .map-name, .player-slots {
+            @include single-line;
+        }
     }
 
     .server-rules {
@@ -146,11 +149,11 @@ body {
             padding: 0;
 
             $rule-padding-v: 8px;
-            $rule-padding-h: 2em;
+            $rule-padding-h: 2.5em;
             $rule-height: 28px;
 
             > li {
-                padding: $rule-padding-v ($rule-padding-h + 0.5em);
+                padding: $rule-padding-v $rule-padding-h;
                 list-style: none;
                 line-height: $rule-height;
 
@@ -162,7 +165,7 @@ body {
                     content: counter(rules-counter);
                     counter-increment: rules-counter;
 
-                    width: 2em;
+                    width: $rule-padding-h;
                     height: $rule-height + $rule-padding-v * 2;
                     line-height: $rule-height + $rule-padding-v * 2;
 
