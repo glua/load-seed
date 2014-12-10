@@ -48,7 +48,7 @@
      * Sets the server info data on the loading screen. This will be called on
      * the `GameDetails` loading screen event.
      */
-    LOAD.setServerInfo = function (serverName, mapName, maxPlayers, gamemode) {
+    LOAD.setServerInfo = function (serverName, mapName, maxPlayers) {
         // set map preview image
         // this.$.mapPreview.src = 'asset://mapimage/' + mapName;
 
@@ -114,7 +114,7 @@
      * @param {String} gamemode   Gamemode folder name.
      */
     window.GameDetails = function (serverName, serverUrl, mapName, maxPlayers, steamid, gamemode) {
-        LOAD.setServerInfo(serverName, mapName, maxPlayers, gamemode);
+        LOAD.setServerInfo(serverName, mapName, maxPlayers);
     };
 
     /**
