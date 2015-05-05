@@ -4,7 +4,7 @@ This project is an application skeleton for building a Garry's Mod loading scree
 
 The seed comes preconfigured with modern frontend tools to make developing a loading screen faster and easier.
 
-See the [loading screen demo page](https://gmodcoders.github.io/load-seed/) for a preview. Some of the images may not appear outside of the Garry's Mod browser.
+See the [loading screen demo page](https://glua.github.io/load-seed/) for a preview. Some of the images may not appear outside of the Garry's Mod browser.
 
 ## Getting Started
 
@@ -21,14 +21,14 @@ The project also uses a number of node.js tools to initialize and build load-see
 Clone the load-seed repository using git:
 
 ```
-git clone https://github.com/gmodcoders/load-seed
+git clone https://github.com/glua/load-seed
 cd load-seed
 ```
 
 If you just want to start a new project without the load-seed commit history then you can do:
 
 ```bash
-git clone --depth=1 https://github.com/gmodcoders/load-seed.git <your-project-name>
+git clone --depth=1 https://github.com/glua/load-seed.git <your-project-name>
 ```
 
 The `depth=1` tells git to only pull down one commit worth of historical data.
