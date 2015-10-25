@@ -53,6 +53,16 @@ gulp serve
 
 Now browse to the loading screen at `http://localhost:9000/`.
 
+## Hosting
+
+When you're ready to host your loading screen, enter the following:
+
+```
+gulp build
+```
+
+The final project files will be built into a `dist` folder within your project. You'll need to upload these files to your HTTP host.
+
 ## Directory Layout
 
 ```
