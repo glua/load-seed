@@ -4,7 +4,7 @@ This project is an application skeleton for building a Garry's Mod loading scree
 
 The seed comes preconfigured with modern frontend tools to make developing a loading screen faster and easier.
 
-See the [loading screen demo page](https://glua.github.io/load-seed/) for a preview. Some of the images may not appear outside of the Garry's Mod browser.
+![Preview Image](http://wiki.garrysmod.com/images/e/e5/load-seed-preview.jpg)
 
 ## Getting Started
 
