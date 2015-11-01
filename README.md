@@ -61,7 +61,7 @@ When you're ready to host your loading screen, enter the following:
 gulp build
 ```
 
-The final project files will be built into a `dist` folder within your project. You'll need to upload these files to your HTTP host.
+The final project files will be built into a `dist` folder within your project. You'll need to upload these files to a web server.
 
 ## Directory Layout
 
