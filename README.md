@@ -35,13 +35,14 @@ The `depth=1` tells git to only pull down one commit worth of historical data.
 
 ### Install Dependencies
 
-This project requires a few tools before you can begin developing your loading screen with it. After installing node.js, you can simple run the following command to install all dependencies:
+This project requires a few tools before you can begin developing your loading screen with it. After installing node.js, you can simply run the following commands to install all dependencies:
 
 ```
 npm install
+npm install -g gulp
 ```
 
-After running this command, you should find the a `node_modules` folder within your project.
+After running these commands, you should find the a `node_modules` folder within your project.
 
 ### Run the Application
 
